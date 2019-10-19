@@ -1,20 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { IMovies } from './movies.model';
 
 @Injectable()
 export class MoviesService {
-    getEvents(): Observable<any[]> {
-        const subject = new Subject<any[]>();
-        setTimeout(() => {
-            // tslint:disable-next-line: no-use-before-declare
-            subject.next(MOVIES); subject.complete();
-        }, 100);
-        return subject;
+    constructor(private http: HttpClient) {
+
+    }
+    getMovies(): Observable<IMovies> {
+        return this.http.get<IMovies>('https://guides.peruzal.com/xamarin-forms-guide/files/movies.json')
+            .pipe(catchError(this.handleError<IMovies>('getMovies', { results: [] })));
     }
 
-    getEvent(id: number): any {
+    getMovie(id: number): any {
         // tslint:disable-next-line: no-use-before-declare
         return MOVIES.find(event => event.id === id);
+    }
+
+    private handleError<T>(operation = 'operation', result?: T) {
+        return (error: any): Observable<T> => {
+            console.error(error);
+            return of(result as T);
+        };
     }
 }
 

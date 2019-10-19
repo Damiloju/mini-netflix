@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { HeaderComponent } from './Header/header.component';
 import { MoviesComponent } from './movies/movies.component';
+import { MoviesService } from './movies/shared/movies.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,12 @@ import { MoviesComponent } from './movies/movies.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    MoviesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
