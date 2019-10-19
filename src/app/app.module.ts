@@ -8,6 +8,7 @@ import { HeaderComponent } from './Header/header.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MoviesService } from './movies/shared/movies.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MoviesResolverService } from './movies/movies-resolver.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    MoviesService
+    MoviesService,
+    MoviesResolverService
   ],
   bootstrap: [AppComponent]
 })
