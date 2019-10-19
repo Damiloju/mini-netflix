@@ -16,4 +16,8 @@ export class MoviesComponent implements OnInit {
     ngOnInit() {
         this.movies = this.route.snapshot.data.movies;
     }
+
+    handleThumbnailClick(name: string) {
+        console.log(this.moviesService.getMovie(name));
+    }
 }

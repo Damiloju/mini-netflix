@@ -5,11 +5,16 @@
   </h1>
   <div class="container">
     <div class="row">
-      <div *ngFor="let movie of movies" class="col-md-6 col-lg-4 mb-5">
+      <div
+        *ngFor="let movie of movies"
+        class="col-md-6 col-lg-4 mb-5"
+        (click)="handleThumbnailClick(movie?.title)"
+        style="cursor:pointer"
+      >
         <div class="card bg-dark border border-danger" style="height: 100%;">
           <img
             [src]="movie?.image?.url"
-            [alt]="movie?.name"
+            [alt]="movie?.title"
             class="card-img-top"
             onError="this.src='assets/images/logo3.jpg'"
           />

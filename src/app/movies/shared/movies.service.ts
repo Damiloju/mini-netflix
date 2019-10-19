@@ -15,10 +15,11 @@ export class MoviesService {
             .pipe(catchError(this.handleError<IMovies>('getMovies', { results: MOVIES })));
     }
 
-    getMovie(id: number): any {
+    getMovie(name: string): any {
         // tslint:disable: no-use-before-declare
-        MOVIES = JSON.parse(sessionStorage.getItem('movies'));
-        return MOVIES.find(movie => movie.id === id);
+        return this.http.get<object>(`http://www.omdbapi.com/?t=${name}&apikey=41560cc6`)
+            // tslint:disable-next-line: no-use-before-declare
+            .pipe(catchError(this.handleError<object>('getMovie', {})));
     }
 
     private handleError<T>(operation = 'operation', result?: T) {
