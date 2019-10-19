@@ -11,7 +11,8 @@ export class MoviesService {
     }
     getMovies(): Observable<IMovies> {
         return this.http.get<IMovies>('https://guides.peruzal.com/xamarin-forms-guide/files/movies.json')
-            .pipe(catchError(this.handleError<IMovies>('getMovies', { results: [] })));
+            // tslint:disable-next-line: no-use-before-declare
+            .pipe(catchError(this.handleError<IMovies>('getMovies', { results: MOVIES })));
     }
 
     getMovie(id: number): any {
