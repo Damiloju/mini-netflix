@@ -35,14 +35,20 @@
         <li class="nav-item">
           <a class="nav-link" href="/" routerLinkActive="active">Login</a>
         </li>
-        <form class="form-inline ml-5">
+        <form class="form-inline ml-5" (ngSubmit)="searchMovies(searchTerm)">
           <input
+            [(ngModel)]="searchTerm"
+            name="searchTerm"
             class="form-control mr-sm-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
           />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          <button
+            class="btn btn-danger my-2 my-sm-0"
+            type="submit"
+            modal-trigger="searchResults"
+          >
             Search
           </button>
         </form>
@@ -50,3 +56,15 @@
     </div>
   </div>
 </nav>
+
+<app-simple-modal elementId="searchResults" title="Found Movies">
+  <div class="list-group list-group-flush">
+    <a
+      class="list-group-item  bg-dark text-light"
+      *ngFor="let movie of foundMovies"
+      [routerLink]="['/movies', movie.Title]"
+      style="text-decoration-line: none;"
+      >{{ movie.Title }}</a
+    >
+  </div>
+</app-simple-modal>
