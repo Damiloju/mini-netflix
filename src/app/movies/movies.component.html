@@ -1,82 +1,26 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-lg-4 mb-5">
-      <div class="card bg-dark border border-danger" style="width: 18rem;">
-        <img
-          src="/assets/images/logo3.jpg"
-          class="card-img-top"
-          alt="Netflix"
-        />
-        <div class="card-body text-center">
-          <h3 class="card-title" style="font-weight: 300;">Movie title</h3>
-          <p class="card-text">2019</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4 mb-5">
-      <div class="card bg-dark border border-danger" style="width: 18rem;">
-        <img
-          src="/assets/images/logo3.jpg"
-          class="card-img-top"
-          alt="Netflix"
-        />
-        <div class="card-body text-center">
-          <h3 class="card-title" style="font-weight: 300;">Movie title</h3>
-          <p class="card-text">2019</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4 mb-5">
-      <div class="card bg-dark border border-danger" style="width: 18rem;">
-        <img
-          src="/assets/images/logo3.jpg"
-          class="card-img-top"
-          alt="Netflix"
-        />
-        <div class="card-body text-center">
-          <h3 class="card-title" style="font-weight: 300;">Movie title</h3>
-          <p class="card-text">2019</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4 mb-5">
-      <div class="card bg-dark border border-danger" style="width: 18rem;">
-        <img
-          src="/assets/images/logo3.jpg"
-          class="card-img-top"
-          alt="Netflix"
-        />
-        <div class="card-body text-center">
-          <h3 class="card-title" style="font-weight: 300;">Movie title</h3>
-          <p class="card-text">2019</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4 mb-5">
-      <div class="card bg-dark border border-danger" style="width: 18rem;">
-        <img
-          src="/assets/images/logo3.jpg"
-          class="card-img-top"
-          alt="Netflix"
-        />
-        <div class="card-body text-center">
-          <h3 class="card-title" style="font-weight: 300;">Movie title</h3>
-          <p class="card-text">2019</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4 mb-5">
-      <div class="card bg-dark border border-danger" style="width: 18rem;">
-        <img
-          src="/assets/images/logo3.jpg"
-          class="card-img-top"
-          alt="Netflix"
-        />
-        <div class="card-body text-center">
-          <h3 class="card-title" style="font-weight: 300;">Movie title</h3>
-          <p class="card-text">2019</p>
+<section>
+  <app-header></app-header>
+  <h1 class="container" style="font-weight: 200;">
+    Movies
+  </h1>
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let movie of movies" class="col-md-6 col-lg-4 mb-5">
+        <div class="card bg-dark border border-danger" style="height: 100%;">
+          <img
+            [src]="movie?.image?.url"
+            [alt]="movie?.name"
+            class="card-img-top"
+            onError="this.src='assets/images/logo3.jpg'"
+          />
+          <div class="card-body text-center">
+            <h4 class="card-title" style="font-weight: 300;">
+              {{ movie?.title }}
+            </h4>
+            <p class="card-text">{{ movie?.releaseYear }}</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
