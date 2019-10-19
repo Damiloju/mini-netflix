@@ -17,7 +17,7 @@ export class MoviesService {
 
     getMovie(id: number): any {
         // tslint:disable-next-line: no-use-before-declare
-        return MOVIES.find(event => event.id === id);
+        return MOVIES.find(movie => movie.id === id);
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

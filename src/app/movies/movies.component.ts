@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from './shared/movies.service';
+import { IMovies } from './shared/movies.model';
 
 @Component({
     selector: 'app-movies',
@@ -14,5 +15,10 @@ export class MoviesComponent implements OnInit {
 
     ngOnInit() {
         this.moviesService.getMovies().subscribe(results => this.movies = results.results);
+    }
+
+    getMovie(id: number): any {
+        // tslint:disable-next-line: no-use-before-declare
+        return this.movies.find(movie => movie.objectId === id);
     }
 }
