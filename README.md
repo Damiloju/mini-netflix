@@ -4,11 +4,11 @@ This project was made for ALC 4.0.
 
 ## Description
 
-### The challenge was to build a mini-netflix web application with Angular.
+The challenge was to build a mini-netflix web application with Angular.
 
 ## Instructions
 
-### This are the basic instructions for running the application
+### These are the basic instructions for running the application
 
 1. Run `npm install`
 2. Start a development server.
