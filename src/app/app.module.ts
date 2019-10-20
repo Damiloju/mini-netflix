@@ -16,6 +16,7 @@ import { ModalTriggerDirective } from './common/modalTrigger.directive';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieResolverService } from './movies/movie-resolver.service';
 import { FavouritesComponent } from './favourite/favourites.component';
+import { ToastrService } from './common/toastr.service';
 
 
 // tslint:disable-next-line: no-string-literal
@@ -42,6 +43,7 @@ const jQuery = window['$'];
     MoviesService,
     MoviesResolverService,
     MovieResolverService,
+    ToastrService,
     { provide: JQ_TOKEN, useValue: jQuery },
   ],
   bootstrap: [AppComponent]

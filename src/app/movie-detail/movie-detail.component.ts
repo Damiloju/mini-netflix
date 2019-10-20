@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from '../common/toastr.service';
 
 @Component({
     selector: 'app-movie-detail',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class MovieDetailComponent implements OnInit {
     movie: any;
 
-    constructor(private route: ActivatedRoute) {
+    constructor(private route: ActivatedRoute, private toastr: ToastrService) {
     }
 
     ngOnInit() {
@@ -23,12 +24,13 @@ export class MovieDetailComponent implements OnInit {
         let sessionMovie: any = JSON.parse(sessionStorage.getItem('movie'));
         if (sessionMovie) {
             if (this.movieHasBeenAdded(movie, sessionMovie)) {
-                console.log('Movie has been added already');
+                this.toastr.warning('Movie has been added to list already');
             } else {
                 sessionMovie.push(movie);
                 sessionStorage.setItem('movie', JSON.stringify(
                     sessionMovie
                 ));
+                this.toastr.success('Movie has been added to Favourites');
             }
 
         } else {
@@ -37,6 +39,8 @@ export class MovieDetailComponent implements OnInit {
             sessionStorage.setItem('movie', JSON.stringify(
                 sessionMovie
             ));
+            this.toastr.success('Movie has been added to Favourites');
+
         }
 
     }
