@@ -12,7 +12,6 @@ export class MoviesResolverService implements Resolve<any> {
 
     resolve() {
         return this.moviesService.getMovies().pipe(map(results => {
-            sessionStorage.setItem('movies', JSON.stringify(results.results));
             return results.results;
         }));
     }

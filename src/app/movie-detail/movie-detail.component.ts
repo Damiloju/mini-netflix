@@ -18,4 +18,32 @@ export class MovieDetailComponent implements OnInit {
             this.movie = data['movie'];
         });
     }
+
+    addToFavourites(movie: object) {
+        let sessionMovie: any = JSON.parse(sessionStorage.getItem('movie'));
+        if (sessionMovie) {
+            if (this.movieHasBeenAdded(movie, sessionMovie)) {
+                console.log('Movie has been added already');
+            } else {
+                sessionMovie.push(movie);
+                sessionStorage.setItem('movie', JSON.stringify(
+                    sessionMovie
+                ));
+            }
+
+        } else {
+            sessionMovie = [];
+            sessionMovie.push(movie);
+            sessionStorage.setItem('movie', JSON.stringify(
+                sessionMovie
+            ));
+        }
+
+    }
+
+    movieHasBeenAdded(userMovie, movies) {
+        return movies.find((movie) => {
+            return movie.Title === userMovie.Title;
+        });
+    }
 }
