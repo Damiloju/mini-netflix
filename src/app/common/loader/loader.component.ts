@@ -8,7 +8,7 @@ import { LoaderService } from '../loader.service';
   styleUrls: ['./loader.component.css']
 })
 export class LoaderComponent {
-  color = 'red';
+  color = 'warn';
   mode = 'indeterminate';
   value = 50;
   isLoading: Subject<boolean> = this.loaderService.isLoading;
