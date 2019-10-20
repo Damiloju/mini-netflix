@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="card mb-3 bg-dark mt-1">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img
+          [src]="movie?.Poster"
+          class="card-img"
+          alt="Movie Banner"
+          height="100%"
+          onError="this.src='assets/images/logo2.png'"
+        />
+      </div>
+      <div class="col-md-8 text-justify">
+        <div class="card-header text-center">
+          <h3 class="font-weight-bold text-danger">{{ movie?.Title }}</h3>
+        </div>
+        <div class="card-body text-justify">
+          <p class="card-text">
+            <span class="text-uppercase text-danger">Rating:</span>
+            {{ movie?.Rated }}
+          </p>
+          <p class="card-text">
+            <span class="text-uppercase text-danger">Realeased:</span>
+            {{ movie?.Year }}
+          </p>
+          <p class="card-text">
+            <span class="text-uppercase text-danger">Runtime:</span>
+            {{ movie?.Runtime }}
+          </p>
+          <p class="card-text">
+            <span class="text-uppercase text-danger">Genre:</span>
+            {{ movie?.Genre }}
+          </p>
+          <p class="card-text">
+            <span class="text-uppercase text-danger">Director:</span>
+            {{ movie?.Director }}
+          </p>
+          <p class="card-text">
+            <span class="text-uppercase text-danger">Writers:</span>
+            {{ movie?.Writer }}
+          </p>
+          <p class="card-text">
+            <span class="text-uppercase text-danger">Actors:</span>
+            {{ movie?.Actors }}
+          </p>
+          <p class="card-text">
+            <span class="text-uppercase text-danger">Language:</span>
+            {{ movie?.Language }}
+          </p>
+          <p class="card-text">
+            <span class="text-uppercase text-danger">Country:</span>
+            {{ movie?.Country }}
+          </p>
+          <p class="card-text">
+            <span class="text-uppercase text-danger">Awards:</span>
+            {{ movie?.Awards }}
+          </p>
+          <p class="card-text">
+            <span class="text-uppercase text-danger">Plot:</span>
+            {{ movie?.Plot }}
+          </p>
+          <p class="card-text">
+            <span class="text-uppercase text-danger">BoxOffice:</span>
+            {{ movie?.BoxOffice }}
+          </p>
+          <p class="card-text">
+            <span class="text-uppercase text-danger">Imdb Rating:</span>
+            {{ movie?.imdbRating }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

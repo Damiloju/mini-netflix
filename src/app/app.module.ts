@@ -13,6 +13,8 @@ import { MoviesResolverService } from './movies/movies-resolver.service';
 import { JQ_TOKEN } from './common/jquery.service';
 import { SimpleModalComponent } from './common/simpleModal.component';
 import { ModalTriggerDirective } from './common/modalTrigger.directive';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { MovieResolverService } from './movies/movie-resolver.service';
 
 
 // tslint:disable-next-line: no-string-literal
@@ -25,7 +27,8 @@ const jQuery = window['$'];
     HeaderComponent,
     MoviesComponent,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ const jQuery = window['$'];
   providers: [
     MoviesService,
     MoviesResolverService,
+    MovieResolverService,
     { provide: JQ_TOKEN, useValue: jQuery },
   ],
   bootstrap: [AppComponent]

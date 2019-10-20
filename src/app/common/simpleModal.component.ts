@@ -2,8 +2,8 @@ import { Component, Input, ViewChild, ElementRef, Inject } from '@angular/core';
 import { JQ_TOKEN } from './jquery.service';
 
 @Component({
-    selector: 'app-simple-modal',
-    template: `
+  selector: 'app-simple-modal',
+  template: `
   <div id="{{elementId}}" #modalcontainer class="modal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content bg-dark">
@@ -18,21 +18,21 @@ import { JQ_TOKEN } from './jquery.service';
     </div>
   </div>
   `,
-    styles: [`
+  styles: [`
   `]
 })
 export class SimpleModalComponent {
-    @Input() title: string;
-    @Input() elementId: string;
-    @Input() closeOnBodyClick: string;
-    @ViewChild('modalcontainer') containerEl: ElementRef;
+  @Input() title: string;
+  @Input() elementId: string;
+  @Input() closeOnBodyClick: string;
+  @ViewChild('modalcontainer', { static: false }) containerEl: ElementRef;
 
-    constructor(@Inject(JQ_TOKEN) private $: any) { }
+  constructor(@Inject(JQ_TOKEN) private $: any) { }
 
-    closeModal() {
-        if (this.closeOnBodyClick.toLocaleLowerCase() === 'true') {
-            console.log(this.$);
-            this.$(this.containerEl.nativeElement).modal('hide');
-        }
+  closeModal() {
+    if (this.closeOnBodyClick.toLocaleLowerCase() === 'true') {
+      console.log(this.$);
+      this.$(this.containerEl.nativeElement).modal('hide');
     }
+  }
 }

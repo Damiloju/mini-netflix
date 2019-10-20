@@ -23,14 +23,19 @@
         <li class="nav-item">
           <a
             class="nav-link"
-            href="/"
             [routerLink]="['/movies']"
             routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
             >All Movies</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/" routerLinkActive="active">Favourites</a>
+          <a
+            class="nav-link"
+            [routerLink]="['/movies/favourites']"
+            routerLinkActive="active"
+            >Favourites</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/" routerLinkActive="active">Login</a>
