@@ -15,6 +15,7 @@ import { SimpleModalComponent } from './common/simpleModal.component';
 import { ModalTriggerDirective } from './common/modalTrigger.directive';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieResolverService } from './movies/movie-resolver.service';
+import { FavouritesComponent } from './favourite/favourites.component';
 
 
 // tslint:disable-next-line: no-string-literal
@@ -28,7 +29,8 @@ const jQuery = window['$'];
     MoviesComponent,
     SimpleModalComponent,
     ModalTriggerDirective,
-    MovieDetailComponent
+    MovieDetailComponent,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,

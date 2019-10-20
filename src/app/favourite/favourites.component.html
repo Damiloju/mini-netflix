@@ -1,0 +1,30 @@
+<section>
+  <h1 class="container m-5" style="font-weight: 200;">
+    My Favourites
+  </h1>
+  <div class="container">
+    <div class="row">
+      <div
+        *ngFor="let movie of movies"
+        class="col-md-6 col-lg-4 mb-5"
+        [routerLink]="['/movies', movie.Title]"
+        style="cursor:pointer"
+      >
+        <div class="card bg-dark border border-danger" style="height: 100%;">
+          <img
+            [src]="movie?.Poster"
+            [alt]="movie?.Title"
+            class="card-img-top"
+            onError="this.src='assets/images/logo3.jpg'"
+          />
+          <div class="card-body text-center">
+            <h4 class="card-title" style="font-weight: 300;">
+              {{ movie?.Title }}
+            </h4>
+            <p class="card-text">{{ movie?.Year }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
