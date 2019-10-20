@@ -17,13 +17,13 @@ export class MoviesService {
 
     getMovie(name: string): Observable<any> {
         // tslint:disable: no-use-before-declare
-        return this.http.get<object>(`http://www.omdbapi.com/?t=${name}&apikey=41560cc6`)
+        return this.http.get<object>(`https://www.omdbapi.com/?t=${name}&apikey=41560cc6`)
             // tslint:disable-next-line: no-use-before-declare
             .pipe(catchError(this.handleError<object>('getMovie', {})));
     }
 
     searchMovies(term: string): Observable<any> {
-        return this.http.get<object>(`http://www.omdbapi.com/?s=${term}&apikey=41560cc6`)
+        return this.http.get<object>(`https://www.omdbapi.com/?s=${term}&apikey=41560cc6`)
             // tslint:disable-next-line: no-use-before-declare
             .pipe(catchError(this.handleError<object>('searchMovies', {})));
     }
