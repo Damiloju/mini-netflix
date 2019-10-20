@@ -13,6 +13,9 @@ export class MovieDetailComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.movie = this.route.snapshot.data.movie;
+        this.route.data.forEach((data) => {
+            // tslint:disable-next-line: no-string-literal
+            this.movie = data['movie'];
+        });
     }
 }
