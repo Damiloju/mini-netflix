@@ -6,6 +6,10 @@ This project was made for ALC 4.0.
 
 The challenge was to build a mini-netflix web application with Angular.
 
+## Demo
+
+Demo of the application can be viewed here https://mini-netflix-angular.netlify.com/
+
 ## Instructions
 
 ### These are the basic instructions for running the application
